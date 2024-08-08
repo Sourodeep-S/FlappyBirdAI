@@ -1,0 +1,20 @@
+A neural network as the name suggests consists of many 'layers' on information with every layer feeding info to the subsequent layers. Based upon the info received from previous layers, the network performs some calculations on the data and generates an output which is in turn fed to the next layer.
+
+The first layer of a NN is the input network. In our case, the inputs are the distances between the top and bottom pipes ans the bird. The ouput neuron decides whether to jump or not jump based on the current position of the bird and the pipes.
+
+The neurons communicate with each other via 'connections'. Each connection has a weight associated with it.
+
+In our case, the NN works by taking the weighted sum of the inputs and passes it to the output neuron which gives a final decision based on a user-defined bias.
+
+An acivation function is used to squish the value of the output neuron between two fixed values. In our case, it is tanh.
+
+NEAT is based on the concept of natural selection.
+Initially, a population of birds is generated with completely random weights and biases(we dont know anything) and they are tested in the game.
+Each bird has its own NN.
+When an entire population has died, based on a fitness function(here, the score) a certain % of the best performimg birds are taken and they are bred/mutated to generate a new population of birds which will hopefully have better values of weights and biases than the last generation.
+
+During the process of breeding and mutation, NEAT may or may not add new nodes and connections to the network as it sees fit.
+
+In NEAT, each member of a population is known as a 'genome'. Each genome has 2 components - nodes(neurons) & genes(connections).
+
+stagnation = max no of generations allowed without an increase in fitness
